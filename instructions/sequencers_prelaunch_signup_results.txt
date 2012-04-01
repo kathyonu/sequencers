@@ -1,6 +1,8 @@
 instructions/sequencers_prelaunch_signup_results.txt
 
-also see : instructions/sequencers_prelaunch_signup.txt for the condensed version with just the commands
+For the short list of commands to run, with explanation of commands, see : 
+
+  sequencers_prelaunch_signup/instructions/sequencers_prelaunch_signup.txt
 
 Last login: Sat Mar 31 07:48:15 on ttys000
 67-206-186-252:~ William$ cd ./clones
@@ -16,10 +18,7 @@ Using /Users/William/.rvm/gems/ruby-1.9.3-p125 with gemset rails322
 67-206-186-252:rails-prelaunch-signup William$ open -e Gemfile
 67-206-186-252:rails-prelaunch-signup William$ open -e README
 67-206-186-252:rails-prelaunch-signup William$ open -e app/views/layouts/application.html.haml
-67-206-186-252:rails-prelaunch-signup William$ mv ./rails-prelaunch-signup ./sequencers_prelaunch_signup
-mv: rename ./rails-prelaunch-signup to ./sequencers_prelaunch_signup: No such file or directory
-67-206-186-252:rails-prelaunch-signup William$ rename ./rails-prelaunch-signup ./sequencers_prelaunch_signup
--bash: rename: command not found
+
 67-206-186-252:rails-prelaunch-signup William$ cd ..
 67-206-186-252:clones William$ mv ./rails-prelaunch-signup ./sequencers_prelaunch_signup
 67-206-186-252:clones William$ ls
@@ -568,9 +567,19 @@ Feature: Request Invitation
 origin
 67-206-186-252:sequencers_prelaunch_signup William$ git remote rm origin
 67-206-186-252:sequencers_prelaunch_signup William$ git remote add origin git@github.com:kathyonu/sequencers_prelaunch_signup.git
- # see instructions/sequencers_prelaunch_signup.txt for explanation of these two commands above.
-
+ # see instructions/sequencers_prelaunch_signup.txt for explanation of the git commands.
+67-206-186-252:sequencers_prelaunch_signup William$ git add .
+67-206-186-252:sequencers_prelaunch_signup William$ git commit -m "all changes made from rails-prelaunch-signup to sequencers_prelaunch_signup"
 67-206-186-252:sequencers_prelaunch_signup William$ git push -u origin master
 
-We are done.
+We are done, the application is ready to build upon.  
 
+To see the Commands Run, without the Results, view the instructions/sequencers_prelaunch_signup.txt page : 
+https://github.com/kathyonu/sequencers_prelaunch_signup/blob/master/instructions/sequencers_prelaunch_signup.txt
+
+Thank you Daniel Kehoe for your stellar works called Rails_Apps.
+https://github.com/RailsApps/rails-prelaunch-signup/
+http://railsapps.github.com/tutorial-rails-prelaunch-signup.html
+
+Kathy Onu ~ Webmaster
+ goodworksonearth.org

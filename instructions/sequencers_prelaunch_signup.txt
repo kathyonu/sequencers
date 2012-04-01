@@ -1,6 +1,8 @@
 instructions/sequencers_prelaunch_signup.txt
 
 these are the exact commands and changes i made to the clone of the rails-prelaunch-signup app, by Daniel Kehoe.
+this involves renaming the application as a first step, 
+also how to change the clone's git origin to your new repository, if you use git.
 
 the COMMANDS in Terminal :
 
@@ -155,26 +157,17 @@ I visit the new repository and I see the app :
 
 	https://github.com/kathyonu/sequencers_prelaunch_signup
 
-Ta Da !!  The sequencers_prelaunch_signup app is done.
+Ta Da !!  
+ The sequencers_prelaunch_signup app is done,
+  ready for you to build upon, with your new chosen name for your app.
 
-To see the full results of these commands, see the instructions/sequencers_prelaunch_signup_results.txt
+To see the full results of these commands being run in Terminal, see :
+
+	https://github.com/kathyonu/sequencers_prelaunch_signup/blob/master/instructions/sequencers_prelaunch_signup_results.txt
 
 Thank you Daniel Kehoe for your stellar works called Rails_Apps.
 https://github.com/RailsApps/rails-prelaunch-signup/
 http://railsapps.github.com/tutorial-rails-prelaunch-signup.html
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Kathy Onu ~ Webmaster
+ goodworksonearth.org
