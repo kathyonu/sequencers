@@ -1,0 +1,578 @@
+instructions/sequencers_prelaunch_signup_results.txt
+
+also see : instructions/sequencers_prelaunch_signup.txt for the condensed version with just the commands
+
+Last login: Sat Mar 31 07:48:15 on ttys000
+67-206-186-252:~ William$ cd ./clones
+67-206-186-252:clones William$ git clone https://github.com/RailsApps/rails-prelaunch-signup.git
+Initialized empty Git repository in /Users/William/clones/rails-prelaunch-signup/.git/
+remote: Counting objects: 377, done.
+remote: Compressing objects: 100% (257/257), done.
+remote: Total 377 (delta 154), reused 320 (delta 97)
+Receiving objects: 100% (377/377), 74.20 KiB | 2 KiB/s, done.
+Resolving deltas: 100% (154/154), done.
+67-206-186-252:clones William$ cd ./rails-prelaunch-signup
+Using /Users/William/.rvm/gems/ruby-1.9.3-p125 with gemset rails322
+67-206-186-252:rails-prelaunch-signup William$ open -e Gemfile
+67-206-186-252:rails-prelaunch-signup William$ open -e README
+67-206-186-252:rails-prelaunch-signup William$ open -e app/views/layouts/application.html.haml
+67-206-186-252:rails-prelaunch-signup William$ mv ./rails-prelaunch-signup ./sequencers_prelaunch_signup
+mv: rename ./rails-prelaunch-signup to ./sequencers_prelaunch_signup: No such file or directory
+67-206-186-252:rails-prelaunch-signup William$ rename ./rails-prelaunch-signup ./sequencers_prelaunch_signup
+-bash: rename: command not found
+67-206-186-252:rails-prelaunch-signup William$ cd ..
+67-206-186-252:clones William$ mv ./rails-prelaunch-signup ./sequencers_prelaunch_signup
+67-206-186-252:clones William$ ls
+sequencers_prelaunch_signup
+67-206-186-252:clones William$ cd ./sequencers_prelaunch_signup/
+Using /Users/William/.rvm/gems/ruby-1.9.3-p125 with gemset rails322
+67-206-186-252:sequencers_prelaunch_signup William$ ls
+Gemfile		README		Rakefile	config		db		lib		public		spec		vendor
+Gemfile.lock	README.textile	app		config.ru	features	log		script		stories
+67-206-186-252:sequencers_prelaunch_signup William$ open -e app/views/layouts/application.html.haml
+67-206-186-252:sequencers_prelaunch_signup William$ open -e app/views/layouts/_navigation.html.haml
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/application.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/environment.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/environments/development.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/environments/production.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/environments/test.rb
+67-206-186-252:sequencers_prelaunch_signup William$ config/initializers/devise.rb
+-bash: config/initializers/devise.rb: Permission denied
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/initializers/devise.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/initializers/session_store.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e db/seeds.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e config/routes.rb
+67-206-186-252:sequencers_prelaunch_signup William$ open -e db/seeds.rb
+67-206-186-252:sequencers_prelaunch_signup William$ git status
+# On branch master
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   Gemfile
+#	modified:   README
+#	modified:   app/views/layouts/_navigation.html.haml
+#	modified:   app/views/layouts/application.html.haml
+#	modified:   config/application.rb
+#	modified:   config/environment.rb
+#	modified:   config/environments/development.rb
+#	modified:   config/environments/production.rb
+#	modified:   config/environments/test.rb
+#	modified:   config/initializers/session_store.rb
+#	modified:   config/routes.rb
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+67-206-186-252:sequencers_prelaunch_signup William$ gem list --local
+
+*** LOCAL GEMS ***
+
+actionmailer (3.2.2)
+actionpack (3.2.2)
+activemodel (3.2.2)
+activerecord (3.2.2)
+activeresource (3.2.2)
+activesupport (3.2.2)
+addressable (2.2.7)
+arel (3.0.2)
+bcrypt-ruby (3.0.1)
+bootstrap-sass (2.0.1)
+builder (3.0.0)
+bundle (0.0.1)
+bundler (1.1.3)
+capybara (1.1.2)
+childprocess (0.3.1)
+coffee-rails (3.2.2)
+coffee-script (2.2.0)
+coffee-script-source (1.2.0)
+cucumber (1.1.9)
+cucumber-rails (1.3.0)
+database_cleaner (0.7.2)
+devise (2.0.4)
+devise_invitable (1.0.0)
+diff-lcs (1.1.3)
+email_spec (1.2.1)
+erubis (2.7.0)
+execjs (1.3.0)
+factory_girl (3.0.0)
+factory_girl_rails (3.0.0)
+ffi (1.0.11)
+gherkin (2.9.3)
+haml (3.1.4)
+haml-rails (0.3.4)
+hike (1.2.1)
+i18n (0.6.0)
+journey (1.0.3)
+jquery-rails (2.0.1)
+json (1.6.6)
+launchy (2.1.0)
+mail (2.4.4)
+mime-types (1.18)
+multi_json (1.2.0)
+nokogiri (1.5.2)
+orm_adapter (0.0.7)
+polyglot (0.3.3)
+rack (1.4.1)
+rack-cache (1.2)
+rack-ssl (1.3.2)
+rack-test (0.6.1)
+rails (3.2.2)
+railties (3.2.2)
+rake (0.9.2.2)
+rdoc (3.12)
+rspec (2.9.0)
+rspec-core (2.9.0)
+rspec-expectations (2.9.0)
+rspec-mocks (2.9.0)
+rspec-rails (2.9.0)
+rubyzip (0.9.6.1)
+rvm (1.11.3.3)
+sass (3.1.15)
+sass-rails (3.2.5)
+selenium-webdriver (2.20.0)
+sprockets (2.1.2)
+sqlite3 (1.3.5)
+term-ansicolor (1.0.7)
+thor (0.14.6)
+tilt (1.3.3)
+treetop (1.4.10)
+tzinfo (0.3.32)
+uglifier (1.2.4)
+warden (1.1.1)
+xpath (0.1.4)
+67-206-186-252:sequencers_prelaunch_signup William$ rvm get stable
+Downloading RVM from wayneeseguin branch stable
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  939k  100  939k    0     0   2331      0  0:06:52  0:06:52 --:--:--  2567
+
+Upgrading the RVM installation in /Users/William/.rvm/
+    RVM PATH line found in /Users/William/.bashrc /Users/William/.zshrc.
+    RVM sourcing line found in /Users/William/.bash_profile.
+
+Upgrade Notes:
+
+  * No new notes to display.
+
+# RVM:  Shell scripts enabling management of multiple ruby environments.
+# RTFM: https://rvm.beginrescueend.com/
+# HELP: http://webchat.freenode.net/?channels=rvm (#rvm on irc.freenode.net)
+# Screencast: http://screencasts.org/episodes/how-to-use-rvm
+
+# In case of any issues read output of 'rvm requirements' and/or 'rvm notes'
+
+Upgrade of RVM in /Users/William/.rvm/ is complete.
+
+# Will I Am,
+#
+#   Thank you for using RVM!
+#   I sincerely hope that RVM helps to make your life easier and more enjoyable!!!
+#
+# ~Wayne
+
+
+rvm 1.11.5 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.beginrescueend.com/]
+
+RVM reloaded!
+67-206-186-252:sequencers_prelaunch_signup William$ bundle install
+Fetching gem metadata from http://rubygems.org/........
+Bundler could not find compatible versions for gem "rspec":
+  In snapshot (Gemfile.lock):
+    rspec (2.8.0)
+
+  In Gemfile:
+    rspec-rails (>= 2.9.0) ruby depends on
+      rspec (~> 2.9.0) ruby
+
+Running `bundle update` will rebuild your snapshot from scratch, using only
+the gems in your Gemfile, which may resolve the conflict.
+
+67-206-186-252:sequencers_prelaunch_signup William$ bundle update
+Fetching gem metadata from http://rubygems.org/........
+Using rake (0.9.2.2) 
+Using i18n (0.6.0) 
+Using multi_json (1.2.0) 
+Installing activesupport (3.2.3) 
+Using builder (3.0.0) 
+Installing activemodel (3.2.3) 
+Using erubis (2.7.0) 
+Using journey (1.0.3) 
+Using rack (1.4.1) 
+Using rack-cache (1.2) 
+Using rack-test (0.6.1) 
+Using hike (1.2.1) 
+Using tilt (1.3.3) 
+Using sprockets (2.1.2) 
+Installing actionpack (3.2.3) 
+Using mime-types (1.18) 
+Using polyglot (0.3.3) 
+Using treetop (1.4.10) 
+Using mail (2.4.4) 
+Installing actionmailer (3.2.3) 
+Using arel (3.0.2) 
+Using tzinfo (0.3.32) 
+Installing activerecord (3.2.3) 
+Installing activeresource (3.2.3) 
+Using addressable (2.2.7) 
+Using bcrypt-ruby (3.0.1) 
+Installing bootstrap-sass (2.0.2) 
+Using bundler (1.1.3) 
+Using nokogiri (1.5.2) 
+Using ffi (1.0.11) 
+Using childprocess (0.3.1) 
+Using rubyzip (0.9.6.1) 
+Using selenium-webdriver (2.20.0) 
+Using xpath (0.1.4) 
+Using capybara (1.1.2) 
+Using coffee-script-source (1.2.0) 
+Using execjs (1.3.0) 
+Using coffee-script (2.2.0) 
+Using rack-ssl (1.3.2) 
+Using json (1.6.6) 
+Using rdoc (3.12) 
+Using thor (0.14.6) 
+Installing railties (3.2.3) 
+Using coffee-rails (3.2.2) 
+Using diff-lcs (1.1.3) 
+Using gherkin (2.9.3) 
+Using term-ansicolor (1.0.7) 
+Using cucumber (1.1.9) 
+Using cucumber-rails (1.3.0) 
+Using database_cleaner (0.7.2) 
+Using orm_adapter (0.0.7) 
+Using warden (1.1.1) 
+Using devise (2.0.4) 
+Installing rails (3.2.3) 
+Using devise_invitable (1.0.0) 
+Using rspec-core (2.9.0) 
+Using rspec-expectations (2.9.0) 
+Using rspec-mocks (2.9.0) 
+Using rspec (2.9.0) 
+Using email_spec (1.2.1) 
+Using factory_girl (3.0.0) 
+Using factory_girl_rails (3.0.0) 
+Using haml (3.1.4) 
+Using haml-rails (0.3.4) 
+Using jquery-rails (2.0.1) 
+Using launchy (2.1.0) 
+Using rspec-rails (2.9.0) 
+Using sass (3.1.15) 
+Using sass-rails (3.2.5) 
+Using sqlite3 (1.3.5) 
+Using uglifier (1.2.4) 
+Your bundle is updated! Use `bundle show [gemname]` to see where a bundled gem is installed.
+67-206-186-252:sequencers_prelaunch_signup William$ bundle exec rake db:migrate
+rake aborted!
+uninitialized constant RailsPrelaunchSignup
+
+(See full trace by running task with --trace)
+67-206-186-252:sequencers_prelaunch_signup William$ bundle exec rake db:migrate
+==  DeviseCreateUsers: migrating ==============================================
+-- create_table(:users)
+   -> 0.0103s
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0471s
+-- add_index(:users, :reset_password_token, {:unique=>true})
+   -> 0.0009s
+==  DeviseCreateUsers: migrated (0.0585s) =====================================
+
+==  AddNameToUsers: migrating =================================================
+-- add_column(:users, :name, :string)
+   -> 0.0189s
+==  AddNameToUsers: migrated (0.0193s) ========================================
+
+==  AddConfirmableToUsers: migrating ==========================================
+-- add_column(:users, :confirmation_token, :string)
+   -> 0.0009s
+-- add_column(:users, :confirmed_at, :datetime)
+   -> 0.0005s
+-- add_column(:users, :confirmation_sent_at, :datetime)
+   -> 0.0005s
+-- add_column(:users, :unconfirmed_email, :string)
+   -> 0.0005s
+==  AddConfirmableToUsers: migrated (0.0027s) =================================
+
+==  DeviseInvitableAddToUsers: migrating ======================================
+-- change_table(:users)
+   -> 0.0070s
+-- change_column_null(:users, :encrypted_password, true)
+   -> 0.0283s
+==  DeviseInvitableAddToUsers: migrated (0.0381s) =============================
+
+67-206-186-252:sequencers_prelaunch_signup William$ bundle exec rake db:seed
+SETTING UP DEFAULT USER LOGIN
+New user created: First User
+67-206-186-252:sequencers_prelaunch_signup William$ bundle exec rake db:test:prepare
+67-206-186-252:sequencers_prelaunch_signup William$ bundle exec cucumber
+Using the default profile...
+Feature: Sign in
+  In order to get access to protected sections of the site
+  A user
+  Should be able to sign in
+
+  Scenario: User is not signed up         # features/users/sign_in.feature:6
+    Given I do not exist as a user        # features/step_definitions/user_steps.rb:59
+    When I sign in with valid credentials # features/step_definitions/user_steps.rb:69
+    Then I see an invalid login message   # features/step_definitions/user_steps.rb:177
+    And I should be signed out            # features/step_definitions/user_steps.rb:139
+
+  Scenario: User has not confirmed account    # features/users/sign_in.feature:12
+    Given I exist as an unconfirmed user      # features/step_definitions/user_steps.rb:64
+    And I am not logged in                    # features/step_definitions/user_steps.rb:46
+    When I sign in with valid credentials     # features/step_definitions/user_steps.rb:69
+    Then I see an unconfirmed account message # features/step_definitions/user_steps.rb:145
+    And I should be signed out                # features/step_definitions/user_steps.rb:139
+
+  Scenario: User signs in successfully      # features/users/sign_in.feature:18
+    Given I exist as a user                 # features/step_definitions/user_steps.rb:55
+    And I am not logged in                  # features/step_definitions/user_steps.rb:46
+    When I sign in with valid credentials   # features/step_definitions/user_steps.rb:69
+    Then I see a successful sign in message # features/step_definitions/user_steps.rb:149
+    When I return to the site               # features/step_definitions/user_steps.rb:107
+    Then I should be signed in              # features/step_definitions/user_steps.rb:133
+
+  Scenario: User enters wrong email     # features/users/sign_in.feature:26
+    Given I exist as a user             # features/step_definitions/user_steps.rb:55
+    And I am not logged in              # features/step_definitions/user_steps.rb:46
+    When I sign in with a wrong email   # features/step_definitions/user_steps.rb:111
+    Then I see an invalid login message # features/step_definitions/user_steps.rb:177
+    And I should be signed out          # features/step_definitions/user_steps.rb:139
+
+  Scenario: User enters wrong password   # features/users/sign_in.feature:33
+    Given I exist as a user              # features/step_definitions/user_steps.rb:55
+    And I am not logged in               # features/step_definitions/user_steps.rb:46
+    When I sign in with a wrong password # features/step_definitions/user_steps.rb:116
+    Then I see an invalid login message  # features/step_definitions/user_steps.rb:177
+    And I should be signed out           # features/step_definitions/user_steps.rb:139
+
+Feature: Sign out
+  To protect my account from unauthorized access
+  A signed in user
+  Should be able to sign out
+
+  Scenario: User signs out                 # features/users/sign_out.feature:6
+    Given I am logged in                   # features/step_definitions/user_steps.rb:50
+    When I sign out                        # features/step_definitions/user_steps.rb:74
+    Then I should see a signed out message # features/step_definitions/user_steps.rb:173
+    When I return to the site              # features/step_definitions/user_steps.rb:107
+    Then I should be signed out            # features/step_definitions/user_steps.rb:139
+
+Feature: Sign up
+  In order to get access to protected sections of the site
+  As a user
+  I want to be able to sign up
+
+  Background:                # features/users/sign_up.feature:6
+    Given I am not logged in # features/step_definitions/user_steps.rb:46
+
+  Scenario: User signs up with valid data          # features/users/sign_up.feature:9
+    When I sign up with valid user data            # features/step_definitions/user_steps.rb:78
+    Then I should see a successful sign up message # features/step_definitions/user_steps.rb:153
+
+  Scenario: User signs up with invalid email   # features/users/sign_up.feature:13
+    When I sign up with an invalid email       # features/step_definitions/user_steps.rb:83
+    Then I should see an invalid email message # features/step_definitions/user_steps.rb:157
+
+Feature: Edit User
+  As a registered user of the website
+  I want to edit my user profile
+  so I can change my username
+
+  Scenario: I sign in and edit my account       # features/users/user_edit.feature:6
+    Given I am logged in                        # features/step_definitions/user_steps.rb:50
+    When I edit my account details              # features/step_definitions/user_steps.rb:121
+    Then I should see an account edited message # features/step_definitions/user_steps.rb:181
+
+Feature: Show Users
+  As a visitor to the website
+  I want to see registered users listed on the homepage
+  so I can know if the site has users
+
+Feature: Request Invitation
+  As a visitor to the website
+  I want to request an invitation 
+  so I can be notified when the site is launched
+
+  Background:                # features/visitors/request_invitation.feature:6
+    Given I am not logged in # features/step_definitions/user_steps.rb:46
+
+  Scenario: User views home page                    # features/visitors/request_invitation.feature:9
+    When I visit the home page                      # features/step_definitions/visitor_steps.rb:12
+    Then I should see a button "Request Invitation" # features/step_definitions/visitor_steps.rb:16
+
+  Scenario: User views invitation request form    # features/visitors/request_invitation.feature:13
+    When I visit the home page                    # features/step_definitions/visitor_steps.rb:12
+    And I click a button "Request Invitation"     # features/step_definitions/visitor_steps.rb:20
+    Then I should see a form with a field "Email" # features/step_definitions/visitor_steps.rb:24
+
+  Scenario: User signs up with valid data                         # features/visitors/request_invitation.feature:18
+    When I request an invitation with valid user data             # features/step_definitions/visitor_steps.rb:42
+    Then I should see a message "Thank You"                       # features/step_definitions/visitor_steps.rb:28
+    And my email address should be stored in the database         # features/step_definitions/visitor_steps.rb:32
+    And my account should be unconfirmed                          # features/step_definitions/visitor_steps.rb:37
+    And I should receive an email with subject "Request Received" # features/step_definitions/email_steps.rb:59
+
+  Scenario: User signs up with invalid email           # features/visitors/request_invitation.feature:25
+    When I request an invitation with an invalid email # features/step_definitions/visitor_steps.rb:46
+    Then I should see an invalid email message         # features/step_definitions/user_steps.rb:157
+
+13 scenarios (13 passed)
+55 steps (55 passed)
+0m2.410s
+
+67-206-186-252:sequencers_prelaunch_signup William$ open -e ./.gitignore
+
+I commented out the config/database.yml ignore command, 
+before I created the file and before I added and committed the files to git.
+
+67-206-186-252:sequencers_prelaunch_signup William$ git add .
+67-206-186-252:sequencers_prelaunch_signup William$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   .gitignore
+#	modified:   Gemfile
+#	modified:   Gemfile.lock
+#	modified:   README
+#	modified:   Rakefile
+#	modified:   app/views/layouts/_navigation.html.haml
+#	modified:   app/views/layouts/application.html.haml
+#	modified:   config.ru
+#	modified:   config/application.rb
+#	new file:   config/database.yml
+#	modified:   config/environment.rb
+#	modified:   config/environments/development.rb
+#	modified:   config/environments/production.rb
+#	modified:   config/environments/test.rb
+#	modified:   config/initializers/devise.rb
+#	modified:   config/initializers/secret_token.rb
+#	modified:   config/initializers/session_store.rb
+#	modified:   config/routes.rb
+
+
+67-206-186-252:sequencers_prelaunch_signup William$ cucumber
+Using the default profile...
+Feature: Sign in
+  In order to get access to protected sections of the site
+  A user
+  Should be able to sign in
+
+  Scenario: User is not signed up         # features/users/sign_in.feature:6
+    Given I do not exist as a user        # features/step_definitions/user_steps.rb:59
+    When I sign in with valid credentials # features/step_definitions/user_steps.rb:69
+    Then I see an invalid login message   # features/step_definitions/user_steps.rb:177
+    And I should be signed out            # features/step_definitions/user_steps.rb:139
+
+  Scenario: User has not confirmed account    # features/users/sign_in.feature:12
+    Given I exist as an unconfirmed user      # features/step_definitions/user_steps.rb:64
+    And I am not logged in                    # features/step_definitions/user_steps.rb:46
+    When I sign in with valid credentials     # features/step_definitions/user_steps.rb:69
+    Then I see an unconfirmed account message # features/step_definitions/user_steps.rb:145
+    And I should be signed out                # features/step_definitions/user_steps.rb:139
+
+  Scenario: User signs in successfully      # features/users/sign_in.feature:18
+    Given I exist as a user                 # features/step_definitions/user_steps.rb:55
+    And I am not logged in                  # features/step_definitions/user_steps.rb:46
+    When I sign in with valid credentials   # features/step_definitions/user_steps.rb:69
+    Then I see a successful sign in message # features/step_definitions/user_steps.rb:149
+    When I return to the site               # features/step_definitions/user_steps.rb:107
+    Then I should be signed in              # features/step_definitions/user_steps.rb:133
+
+  Scenario: User enters wrong email     # features/users/sign_in.feature:26
+    Given I exist as a user             # features/step_definitions/user_steps.rb:55
+    And I am not logged in              # features/step_definitions/user_steps.rb:46
+    When I sign in with a wrong email   # features/step_definitions/user_steps.rb:111
+    Then I see an invalid login message # features/step_definitions/user_steps.rb:177
+    And I should be signed out          # features/step_definitions/user_steps.rb:139
+
+  Scenario: User enters wrong password   # features/users/sign_in.feature:33
+    Given I exist as a user              # features/step_definitions/user_steps.rb:55
+    And I am not logged in               # features/step_definitions/user_steps.rb:46
+    When I sign in with a wrong password # features/step_definitions/user_steps.rb:116
+    Then I see an invalid login message  # features/step_definitions/user_steps.rb:177
+    And I should be signed out           # features/step_definitions/user_steps.rb:139
+
+Feature: Sign out
+  To protect my account from unauthorized access
+  A signed in user
+  Should be able to sign out
+
+  Scenario: User signs out                 # features/users/sign_out.feature:6
+    Given I am logged in                   # features/step_definitions/user_steps.rb:50
+    When I sign out                        # features/step_definitions/user_steps.rb:74
+    Then I should see a signed out message # features/step_definitions/user_steps.rb:173
+    When I return to the site              # features/step_definitions/user_steps.rb:107
+    Then I should be signed out            # features/step_definitions/user_steps.rb:139
+
+Feature: Sign up
+  In order to get access to protected sections of the site
+  As a user
+  I want to be able to sign up
+
+  Background:                # features/users/sign_up.feature:6
+    Given I am not logged in # features/step_definitions/user_steps.rb:46
+
+  Scenario: User signs up with valid data          # features/users/sign_up.feature:9
+    When I sign up with valid user data            # features/step_definitions/user_steps.rb:78
+    Then I should see a successful sign up message # features/step_definitions/user_steps.rb:153
+
+  Scenario: User signs up with invalid email   # features/users/sign_up.feature:13
+    When I sign up with an invalid email       # features/step_definitions/user_steps.rb:83
+    Then I should see an invalid email message # features/step_definitions/user_steps.rb:157
+
+Feature: Edit User
+  As a registered user of the website
+  I want to edit my user profile
+  so I can change my username
+
+  Scenario: I sign in and edit my account       # features/users/user_edit.feature:6
+    Given I am logged in                        # features/step_definitions/user_steps.rb:50
+    When I edit my account details              # features/step_definitions/user_steps.rb:121
+    Then I should see an account edited message # features/step_definitions/user_steps.rb:181
+
+Feature: Show Users
+  As a visitor to the website
+  I want to see registered users listed on the homepage
+  so I can know if the site has users
+
+Feature: Request Invitation
+  As a visitor to the website
+  I want to request an invitation 
+  so I can be notified when the site is launched
+
+  Background:                # features/visitors/request_invitation.feature:6
+    Given I am not logged in # features/step_definitions/user_steps.rb:46
+
+  Scenario: User views home page                    # features/visitors/request_invitation.feature:9
+    When I visit the home page                      # features/step_definitions/visitor_steps.rb:12
+    Then I should see a button "Request Invitation" # features/step_definitions/visitor_steps.rb:16
+
+  Scenario: User views invitation request form    # features/visitors/request_invitation.feature:13
+    When I visit the home page                    # features/step_definitions/visitor_steps.rb:12
+    And I click a button "Request Invitation"     # features/step_definitions/visitor_steps.rb:20
+    Then I should see a form with a field "Email" # features/step_definitions/visitor_steps.rb:24
+
+  Scenario: User signs up with valid data                         # features/visitors/request_invitation.feature:18
+    When I request an invitation with valid user data             # features/step_definitions/visitor_steps.rb:42
+    Then I should see a message "Thank You"                       # features/step_definitions/visitor_steps.rb:28
+    And my email address should be stored in the database         # features/step_definitions/visitor_steps.rb:32
+    And my account should be unconfirmed                          # features/step_definitions/visitor_steps.rb:37
+    And I should receive an email with subject "Request Received" # features/step_definitions/email_steps.rb:59
+
+  Scenario: User signs up with invalid email           # features/visitors/request_invitation.feature:25
+    When I request an invitation with an invalid email # features/step_definitions/visitor_steps.rb:46
+    Then I should see an invalid email message         # features/step_definitions/user_steps.rb:157
+
+13 scenarios (13 passed)
+55 steps (55 passed)
+0m2.288s
+67-206-186-252:sequencers_prelaunch_signup William$ git remote
+origin
+67-206-186-252:sequencers_prelaunch_signup William$ git remote rm origin
+67-206-186-252:sequencers_prelaunch_signup William$ git remote add origin git@github.com:kathyonu/sequencers_prelaunch_signup.git
+ # see instructions/sequencers_prelaunch_signup.txt for explanation of these two commands above.
+
+67-206-186-252:sequencers_prelaunch_signup William$ git push -u origin master
+
+We are done.
+

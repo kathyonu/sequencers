@@ -1,0 +1,180 @@
+instructions/sequencers_prelaunch_signup.txt
+
+these are the exact commands and changes i made to the clone of the rails-prelaunch-signup app, by Daniel Kehoe.
+
+the COMMANDS in Terminal :
+
+home   $ mkdir clones
+home   $ cd ./clones
+clones $ git clone https://github.com/RailsApps/rails-prelaunch-signup.git
+clones $ cd ./rails-prelaunch-signup
+signup $ ls                                                               # to verify it all arrived
+signup $ cd ..                                                            # move back to clones directory
+clones $ mv ./rails-prelaunch-signup ./sequencers_prelaunch_signup        # to rename the app to our use
+
+The mv command will rename the application  
+from  rails-prelaunch-signup 
+to    sequencers_prelaunch_signup
+
+The application is now named sequencers_prelaunch_signup.
+Now we make the name changes throughout the application wherever the name is used.
+Using our TextEdit in iMac we open and edit as needed, these files : 
+
+sequencers_prelaunch_signup $ open -e README                                   # adjust for our app use
+sequencers_prelaunch_signup $ open -e app/views/layouts/application.html.haml  # adjust Rails Prelaunch Signup
+sequencers_prelaunch_signup $ open -e app/views/layouts/_navigation.html.haml  # adjust rails-prelaunch-signup
+sequencers_prelaunch_signup $ open -e config/application.rb                    # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e config/environment.rb                    # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e config/environments/development.rb       # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e config/environments/development.rb       # adjust config.action_mailer.perform_deliveries = true  Make this false during development. 
+sequencers_prelaunch_signup $ open -e config/environments/development.rb       # adjust config.action_mailer.smtp_settings if you are using gmail, otherwise comment them out. 
+sequencers_prelaunch_signup $ open -e config/environments/production.rb        # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e config/environments/production.rb        # adjust config.action_mailer.smtp_settings if you are using gmail, otherwise comment them out. 
+sequencers_prelaunch_signup $ open -e config/environments/test.rb              # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e config/initializers/devise.rb            # adjust please-change-me-at-config-initializers-devise@example.com to our email address
+sequencers_prelaunch_signup $ open -e config/initializers/session_store.rb     # adjust _rails_prelaunch_signup_session to _sequencers_prelaunch_signup_session
+sequencers_prelaunch_signup $ open -e config/initializers/session_store.rb     # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup in two places in the file
+sequencers_prelaunch_signup $ open -e config/initializers/session_store.rb     # ^^^^^^ that's three changes in the session_store file.
+sequencers_prelaunch_signup $ open -e config/routes.rb                         # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e config.ru                                # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e Rakefile                                 # adjust RailsPrelaunchSignup to SequencersPrelaunchSignup
+sequencers_prelaunch_signup $ open -e db/seeds.rb                              # verified First User seed is in the file, no changes made.
+
+I created the sequencers_prelaunch_signup/config/database.yml file, as it is not present in the original repository.
+I commented out the config/database.yml ignore command, so the database.yml file will show in the repository.
+I included a TODO note to remind myself to uncomment the gitignore line when i add our passwords.
+
+I adjusted the Gemfile to the current gem versions, rails 3.2.2, etc.
+
+Now run the bundle install command.
+
+sequencers_prelaunch_signup $ bundle install
+sequencers_prelaunch_signup $ bundle update
+
+Now migrate the database : 
+
+sequencers_prelaunch_signup $ bundle exec rake db:migrate
+sequencers_prelaunch_signup $ bundle exec rake db:seed
+sequencers_prelaunch_signup $ bundle exec rake db:test:prepare
+sequencers_prelaunch_signup $ bundle exec cucumber
+
+all scenarios pass, the app runs in the browser
+our work is almost done.
+
+
+========================================================
+these files were changed in the clone due to name change
+ and update of Gemfile, and adding of database.yml file : 
+
+#	modified:   .gitignore
+#	modified:   Gemfile
+#	modified:   Gemfile.lock
+#	modified:   README
+#	modified:   Rakefile
+#	modified:   app/views/layouts/_navigation.html.haml
+#	modified:   app/views/layouts/application.html.haml
+#	modified:   config.ru
+#	modified:   config/application.rb
+#	new file:   config/database.yml
+#	modified:   config/environment.rb
+#	modified:   config/environments/development.rb
+#	modified:   config/environments/production.rb
+#	modified:   config/environments/test.rb
+#	modified:   config/initializers/devise.rb
+#	modified:   config/initializers/secret_token.rb
+#	modified:   config/initializers/session_store.rb
+#	modified:   config/routes.rb
+#	new file:   instructions/sequencers_prelaunch_signup.txt
+#	new file:   instructions/sequencers_prelaunch_signup_results.txt
+========================================================================
+
+This file will show you all the commands we used to make the changes :
+app/instructions/sequencers_prelaunch_signup.txt
+
+Now, we tend to git.
+
+Run the git remote command, you will see you have a remote repository named, origin.
+
+   sequencers_prelaunch_signup $ git remote
+     => origin
+
+The origin points to the repository we cloned from in the first steps.
+Because we have made changes to this application, and 
+because we want to push our changed application to our 
+brand new empty git repository, to do so we have to first 
+remove our application's knowledge of the git remote named origin.
+
+You will be affecting this file :
+
+	sequencers_prelaunch_signup/.git/config
+
+Run this command to open and view the file, do not change it :
+
+   sequencers_prelaunch_signup $ open -e ./.git/config
+
+Just note the origin information, then close the file, making no change
+
+Run this command : 
+
+   sequencers_prelaunch_signup $ git remote rm origin
+
+Now run git remote again :
+
+   sequencers_prelaunch_signup $ git remote
+
+You will see the response shows no remote repository named origin.
+ Note: all we removed is the information identifying the origin, 
+  we did not delete the remote origin itself. Prove it to yourself,
+   run this command again to see what changed :
+
+   sequencers_prelaunch_signup $ open -e ./.git/config
+
+Visit the repository, it is still there : 
+
+	https://github.com/RailsApps/rails-prelaunch-signup.git
+
+
+I have created a new git repository for our app : 
+
+	https://github.com/kathyonu/sequencers_prelaunch_signup
+
+Run the git remote add origin command to tell our app where its new home is :
+
+   sequencers_prelaunch_signup $ git remote add origin git@github.com:kathyonu/sequencers_prelaunch_signup.git
+
+Add all the changes to the git index, then commit the changes : 
+
+   sequencers_prelaunch_signup $ git add .
+   sequencers_prelaunch_signup $ git commit -m "all changes made from rails-prelaunch-signup to sequencers_prelaunch_signup"
+
+Push the application up to its new home on git : 
+
+   sequencers_prelaunch_signup $ git push -u origin master
+
+I visit the new repository and I see the app :
+
+	https://github.com/kathyonu/sequencers_prelaunch_signup
+
+Ta Da !!  The sequencers_prelaunch_signup app is done.
+
+To see the full results of these commands, see the instructions/sequencers_prelaunch_signup_results.txt
+
+Thank you Daniel Kehoe for your stellar works called Rails_Apps.
+https://github.com/RailsApps/rails-prelaunch-signup/
+http://railsapps.github.com/tutorial-rails-prelaunch-signup.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

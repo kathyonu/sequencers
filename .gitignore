@@ -27,7 +27,7 @@ db/*.sqlite3
 .redcar/
 .sass-cache
 /config/config.yml
-/config/database.yml
+# /config/database.yml # when you place your passwords here, first uncomment the line so the file is ignored.
 /coverage.data
 /coverage/
 /db/*.javadb/
