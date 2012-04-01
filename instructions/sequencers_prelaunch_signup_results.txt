@@ -36,8 +36,6 @@ Gemfile.lock	README.textile	app		config.ru	features	log		script		stories
 67-206-186-252:sequencers_prelaunch_signup William$ open -e config/environments/development.rb
 67-206-186-252:sequencers_prelaunch_signup William$ open -e config/environments/production.rb
 67-206-186-252:sequencers_prelaunch_signup William$ open -e config/environments/test.rb
-67-206-186-252:sequencers_prelaunch_signup William$ config/initializers/devise.rb
--bash: config/initializers/devise.rb: Permission denied
 67-206-186-252:sequencers_prelaunch_signup William$ open -e config/initializers/devise.rb
 67-206-186-252:sequencers_prelaunch_signup William$ open -e config/initializers/session_store.rb
 67-206-186-252:sequencers_prelaunch_signup William$ open -e db/seeds.rb
