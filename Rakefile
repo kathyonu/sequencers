@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SequencersPrelaunchSignup::Application.load_tasks
+Sequencers::Application.load_tasks

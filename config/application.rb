@@ -15,7 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module SequencersPrelaunchSignup
+module Sequencers
   class Application < Rails::Application
 
     # don't generate RSpec tests for views and helpers

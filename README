@@ -1,32 +1,20 @@
-This application began as a clone of :
-https://github.com/railsapps/rails-prelaunch-signup
-with our changes for our site use.  To see how we did it,
-open the sequencers_prelaunch_signup.txt file in the instructions folder we added.
+Sequencers
+==========
 
-The original README is as follows : 
+Sequencers is being designed to generate sequences of any text a user may enter.
 
-Rails Prelaunch Signup
-========================
+Authored by Kathy Onu @ goodworksonearth.org
 
-An example Rails 3.2 app for a web startup prelaunch page.
+This application was built by cloning Daniel Kehoe's template
+named RailsApps/rails_prelaunch_signup using this command : 
 
-You can use this project as a starting point for a Rails web application. It requires Rails 3.2 or newer and uses Devise http://github.com/plataformatec/devise for user management and authentication.
-________________________
+	$ git clone https://github.com/RailsApps/rails-prelaunch-signup.git
 
-See the README file on GitHub
+You can view the INSTRUCTIONS folder to see all the necessary commands to 
+run, and the files to change, and results of running those commands here :
+https://github.com/kathyonu/sequencers_prelaunch_signup/
 
-For more information, please see the updated README file on GitHub:
+Thank you Daniel Kehoe for your stellar works called Rails_Apps.
+https://github.com/RailsApps/rails-prelaunch-signup/
+http://railsapps.github.com/tutorial-rails-prelaunch-signup.html
 
-https://github.com/railsapps/rails-prelaunch-signup
-
-________________________
-
-Public Domain Dedication
-
-This work is a compilation and derivation from other previously released works. With the exception of various included works, which may be restricted by other licenses, the author or authors of this code dedicate any and all copyright interest in this code to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and successors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this code under copyright law.
-
--------------------------------
-The original README ends there.
-
-As we develop this app for our organization use, we will update the README.
- 

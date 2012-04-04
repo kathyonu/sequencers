@@ -1,4 +1,4 @@
-SequencersPrelaunchSignup::Application.routes.draw do
+Sequencers::Application.routes.draw do
   
   authenticated :user do
     root :to => 'home#index'
