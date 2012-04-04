@@ -1,0 +1,388 @@
+sequencers_app_creation_notes.txt
+
+The git address : git@github.com:kathyonu/sequencers.git
+
+67-206-186-156:~ William$ cd ./20120403_sequencers/sequencers_prelaunch_signup
+
+The SEQUENCERS app begins as the sequencers_prelaunch_signup, and undergoes a name change.
+
+
+Creating the app : 
+
+Last login: Mon Apr  2 21:01:51 on ttys000
+67-206-184-68:~ William$ pwd
+/Users/William
+67-206-184-68:~ William$ mkdir 20120403_sequencers
+67-206-184-68:~ William$ cd ./20120403_sequencers/
+67-206-184-68:20120403_sequencers William$ git clone git@github.com:kathyonu/sequencers_prelaunch_signup.git
+Initialized empty Git repository in /Users/William/20120403_sequencers/sequencers_prelaunch_signup/.git/
+remote: Counting objects: 415, done.
+remote: Compressing objects: 100% (213/213), done.
+remote: Total 415 (delta 180), reused 414 (delta 179)
+Receiving objects: 100% (415/415), 85.67 KiB | 4 KiB/s, done.
+Resolving deltas: 100% (180/180), done.
+67-206-184-68:20120403_sequencers William$ cd ./sequencers_prelaunch_signup/
+==============================================================================
+= NOTICE                                                                     =
+==============================================================================
+= RVM has encountered a new or modified .rvmrc file in the current directory =
+= This is a shell script and therefore may contain any shell commands.       =
+=                                                                            =
+= Examine the contents of this file carefully to be sure the contents are    =
+= safe before trusting it! ( Choose v[iew] below to view the contents )      =
+==============================================================================
+Do you wish to trust this .rvmrc file? (/Users/William/20120403_sequencers/sequencers_prelaunch_signup/.rvmrc)
+y[es], n[o], v[iew], c[ancel]> y
+Using /Users/William/.rvm/gems/ruby-1.9.3-p125 with gemset rails322
+67-206-184-68:sequencers_prelaunch_signup William$ exit
+logout
+
+[Process completed]
+
+CHANGE THE NAME
+
+Last login: Mon Apr  2 22:45:08 on ttys000
+67-206-186-156:~ William$ mv ./20120403_sequencers/sequencers_prelaunch_signup/ ./20120403_sequencers/sequencers
+67-206-186-156:~ William$ cd ./20120403_sequencers/
+67-206-186-156:20120403_sequencers William$ ls
+sequencers
+67-206-186-156:20120403_sequencers William$ cd ./sequencers/
+==============================================================================
+= NOTICE                                                                     =
+==============================================================================
+= RVM has encountered a new or modified .rvmrc file in the current directory =
+= This is a shell script and therefore may contain any shell commands.       =
+=                                                                            =
+= Examine the contents of this file carefully to be sure the contents are    =
+= safe before trusting it! ( Choose v[iew] below to view the contents )      =
+==============================================================================
+Do you wish to trust this .rvmrc file? (/Users/William/20120403_sequencers/sequencers/.rvmrc)
+y[es], n[o], v[iew], c[ancel]> y
+Using /Users/William/.rvm/gems/ruby-1.9.3-p125 with gemset rails322
+
+
+PROOF THE TESTS FAIL WITHOUT THE CHANGES REQUIRED AFTER AN APP NAME CHANGE
+--------------------------------------------------------------------------
+
+67-206-186-156:sequencers William$ cucumber
+Using the default profile...
+Feature: Sign in
+  In order to get access to protected sections of the site
+  A user
+  Should be able to sign in
+
+  Scenario: User is not signed up         # features/users/sign_in.feature:6
+    Given I do not exist as a user        # features/step_definitions/user_steps.rb:59
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:26:in `delete_user'
+      ./features/step_definitions/user_steps.rb:61:in `/^I do not exist as a user$/'
+      features/users/sign_in.feature:7:in `Given I do not exist as a user'
+    When I sign in with valid credentials # features/step_definitions/user_steps.rb:69
+    Then I see an invalid login message   # features/step_definitions/user_steps.rb:177
+    And I should be signed out            # features/step_definitions/user_steps.rb:139
+
+  Scenario: User has not confirmed account    # features/users/sign_in.feature:12
+    Given I exist as an unconfirmed user      # features/step_definitions/user_steps.rb:64
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:26:in `delete_user'
+      ./features/step_definitions/user_steps.rb:14:in `create_unconfirmed_user'
+      ./features/step_definitions/user_steps.rb:65:in `/^I exist as an unconfirmed user$/'
+      features/users/sign_in.feature:13:in `Given I exist as an unconfirmed user'
+    And I am not logged in                    # features/step_definitions/user_steps.rb:46
+    When I sign in with valid credentials     # features/step_definitions/user_steps.rb:69
+    Then I see an unconfirmed account message # features/step_definitions/user_steps.rb:145
+    And I should be signed out                # features/step_definitions/user_steps.rb:139
+
+  Scenario: User signs in successfully      # features/users/sign_in.feature:18
+    Given I exist as a user                 # features/step_definitions/user_steps.rb:55
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:26:in `delete_user'
+      ./features/step_definitions/user_steps.rb:21:in `create_user'
+      ./features/step_definitions/user_steps.rb:56:in `/^I exist as a user$/'
+      features/users/sign_in.feature:19:in `Given I exist as a user'
+    And I am not logged in                  # features/step_definitions/user_steps.rb:46
+    When I sign in with valid credentials   # features/step_definitions/user_steps.rb:69
+    Then I see a successful sign in message # features/step_definitions/user_steps.rb:149
+    When I return to the site               # features/step_definitions/user_steps.rb:107
+    Then I should be signed in              # features/step_definitions/user_steps.rb:133
+
+  Scenario: User enters wrong email     # features/users/sign_in.feature:26
+    Given I exist as a user             # features/step_definitions/user_steps.rb:55
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:26:in `delete_user'
+      ./features/step_definitions/user_steps.rb:21:in `create_user'
+      ./features/step_definitions/user_steps.rb:56:in `/^I exist as a user$/'
+      features/users/sign_in.feature:27:in `Given I exist as a user'
+    And I am not logged in              # features/step_definitions/user_steps.rb:46
+    When I sign in with a wrong email   # features/step_definitions/user_steps.rb:111
+    Then I see an invalid login message # features/step_definitions/user_steps.rb:177
+    And I should be signed out          # features/step_definitions/user_steps.rb:139
+
+  Scenario: User enters wrong password   # features/users/sign_in.feature:33
+    Given I exist as a user              # features/step_definitions/user_steps.rb:55
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:26:in `delete_user'
+      ./features/step_definitions/user_steps.rb:21:in `create_user'
+      ./features/step_definitions/user_steps.rb:56:in `/^I exist as a user$/'
+      features/users/sign_in.feature:34:in `Given I exist as a user'
+    And I am not logged in               # features/step_definitions/user_steps.rb:46
+    When I sign in with a wrong password # features/step_definitions/user_steps.rb:116
+    Then I see an invalid login message  # features/step_definitions/user_steps.rb:177
+    And I should be signed out           # features/step_definitions/user_steps.rb:139
+
+Feature: Sign out
+  To protect my account from unauthorized access
+  A signed in user
+  Should be able to sign out
+
+  Scenario: User signs out                 # features/users/sign_out.feature:6
+    Given I am logged in                   # features/step_definitions/user_steps.rb:50
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:26:in `delete_user'
+      ./features/step_definitions/user_steps.rb:21:in `create_user'
+      ./features/step_definitions/user_steps.rb:51:in `/^I am logged in$/'
+      features/users/sign_out.feature:7:in `Given I am logged in'
+    When I sign out                        # features/step_definitions/user_steps.rb:74
+    Then I should see a signed out message # features/step_definitions/user_steps.rb:173
+    When I return to the site              # features/step_definitions/user_steps.rb:107
+    Then I should be signed out            # features/step_definitions/user_steps.rb:139
+
+Feature: Sign up
+  In order to get access to protected sections of the site
+  As a user
+  I want to be able to sign up
+
+  Background:                # features/users/sign_up.feature:6
+    Given I am not logged in # features/step_definitions/user_steps.rb:46
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:47:in `/^I am not logged in$/'
+      features/users/sign_up.feature:7:in `Given I am not logged in'
+
+  Scenario: User signs up with valid data          # features/users/sign_up.feature:9
+    When I sign up with valid user data            # features/step_definitions/user_steps.rb:78
+    Then I should see a successful sign up message # features/step_definitions/user_steps.rb:153
+
+  Scenario: User signs up with invalid email   # features/users/sign_up.feature:13
+    When I sign up with an invalid email       # features/step_definitions/user_steps.rb:83
+    Then I should see an invalid email message # features/step_definitions/user_steps.rb:157
+
+Feature: Edit User
+  As a registered user of the website
+  I want to edit my user profile
+  so I can change my username
+
+  Scenario: I sign in and edit my account       # features/users/user_edit.feature:6
+    Given I am logged in                        # features/step_definitions/user_steps.rb:50
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:26:in `delete_user'
+      ./features/step_definitions/user_steps.rb:21:in `create_user'
+      ./features/step_definitions/user_steps.rb:51:in `/^I am logged in$/'
+      features/users/user_edit.feature:7:in `Given I am logged in'
+    When I edit my account details              # features/step_definitions/user_steps.rb:121
+    Then I should see an account edited message # features/step_definitions/user_steps.rb:181
+
+Feature: Show Users
+  As a visitor to the website
+  I want to see registered users listed on the homepage
+  so I can know if the site has users
+
+Feature: Request Invitation
+  As a visitor to the website
+  I want to request an invitation 
+  so I can be notified when the site is launched
+
+  Background:                # features/visitors/request_invitation.feature:6
+    Given I am not logged in # features/step_definitions/user_steps.rb:46
+      Could not find table 'users' (ActiveRecord::StatementInvalid)
+      ./features/step_definitions/user_steps.rb:47:in `/^I am not logged in$/'
+      features/visitors/request_invitation.feature:7:in `Given I am not logged in'
+
+  Scenario: User views home page                    # features/visitors/request_invitation.feature:9
+    When I visit the home page                      # features/step_definitions/visitor_steps.rb:12
+    Then I should see a button "Request Invitation" # features/step_definitions/visitor_steps.rb:16
+
+  Scenario: User views invitation request form    # features/visitors/request_invitation.feature:13
+    When I visit the home page                    # features/step_definitions/visitor_steps.rb:12
+    And I click a button "Request Invitation"     # features/step_definitions/visitor_steps.rb:20
+    Then I should see a form with a field "Email" # features/step_definitions/visitor_steps.rb:24
+
+  Scenario: User signs up with valid data                         # features/visitors/request_invitation.feature:18
+    When I request an invitation with valid user data             # features/step_definitions/visitor_steps.rb:42
+    Then I should see a message "Thank You"                       # features/step_definitions/visitor_steps.rb:28
+    And my email address should be stored in the database         # features/step_definitions/visitor_steps.rb:32
+    And my account should be unconfirmed                          # features/step_definitions/visitor_steps.rb:37
+    And I should receive an email with subject "Request Received" # features/step_definitions/email_steps.rb:59
+
+  Scenario: User signs up with invalid email           # features/visitors/request_invitation.feature:25
+    When I request an invitation with an invalid email # features/step_definitions/visitor_steps.rb:46
+    Then I should see an invalid email message         # features/step_definitions/user_steps.rb:157
+
+Failing Scenarios:
+cucumber features/users/sign_in.feature:6 # Scenario: User is not signed up
+cucumber features/users/sign_in.feature:12 # Scenario: User has not confirmed account
+cucumber features/users/sign_in.feature:18 # Scenario: User signs in successfully
+cucumber features/users/sign_in.feature:26 # Scenario: User enters wrong email
+cucumber features/users/sign_in.feature:33 # Scenario: User enters wrong password
+cucumber features/users/sign_out.feature:6 # Scenario: User signs out
+cucumber features/users/sign_up.feature:9 # Scenario: User signs up with valid data
+cucumber features/users/user_edit.feature:6 # Scenario: I sign in and edit my account
+cucumber features/visitors/request_invitation.feature:9 # Scenario: User views home page
+
+13 scenarios (9 failed, 4 skipped)
+55 steps (9 failed, 46 skipped)
+0m0.385s
+67-206-186-156:sequencers William$ 
+===================================
+
+BEGIN MAKING THE CHANGES REQUIRED AFTER AN APP NAME CHANGE
+
+The application is now named sequencers, created from the sequencers_prelaunch_signup.
+Now we make the name changes throughout the application wherever the name is used.
+Using our TextEdit in iMac we open and edit as needed, these files : 
+
+sequencers_prelaunch_signup $ open -e README                                   # adjust for our app use
+sequencers_prelaunch_signup $ open -e app/views/layouts/application.html.haml  # adjust Sequencers Prelaunch Signup to Sequencers
+sequencers_prelaunch_signup $ open -e app/views/layouts/_navigation.html.haml  # adjust sequencers-prelaunch-signup to sequencers
+sequencers_prelaunch_signup $ open -e config/application.rb                    # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e config/environment.rb                    # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e config/environments/development.rb       # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e config/environments/development.rb       # verify config.action_mailer.perform_deliveries = true  Make this false during development. 
+sequencers_prelaunch_signup $ open -e config/environments/development.rb       # adjust config.action_mailer.smtp_settings if you are using gmail, otherwise comment them out. 
+sequencers_prelaunch_signup $ open -e config/environments/production.rb        # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e config/environments/production.rb        # adjust config.action_mailer.smtp_settings if you are using gmail, otherwise comment them out. 
+sequencers_prelaunch_signup $ open -e config/environments/test.rb              # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e config/initializers/devise.rb            # adjust lexigram@goodworksonearth.org to another email address
+sequencers_prelaunch_signup $ open -e config/initializers/session_store.rb     # adjust _sequencers_prelaunch_signup_session to _sequencers_session
+sequencers_prelaunch_signup $ open -e config/initializers/session_store.rb     # adjust SequencersPrelaunchSignup to Sequencers in two places in the file
+sequencers_prelaunch_signup $ open -e config/initializers/session_store.rb     # ^^^^^^ that's three changes in the session_store file.
+sequencers_prelaunch_signup $ open -e config/routes.rb                         # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e config.ru                                # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e Rakefile                                 # adjust SequencersPrelaunchSignup to Sequencers
+sequencers_prelaunch_signup $ open -e db/seeds.rb                              # verified First User seed is in the file, no changes made.
+
+67-206-186-156:sequencers William$ git status
+# On branch master
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   Rakefile
+#       modified:   README
+#       modified:   README.textile
+#	modified:   app/views/layouts/_navigation.html.haml
+#	modified:   app/views/layouts/application.html.haml
+#	modified:   config.ru
+#	modified:   config/application.rb
+#	modified:   config/environment.rb
+#	modified:   config/environments/development.rb
+#	modified:   config/environments/production.rb
+#	modified:   config/environments/test.rb
+#	modified:   config/initializers/secret_token.rb
+#	modified:   config/initializers/session_store.rb
+#	modified:   config/routes.rb
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+67-206-186-156:sequencers William$ 
+
+67-206-186-156:sequencers William$ bundle exec rake db:migrate
+67-206-186-156:sequencers William$ rake db:seed
+SETTING UP DEFAULT USER LOGIN
+New user created: First User
+67-206-186-156:sequencers William$ rake db:test:prepare
+67-206-186-156:sequencers William$ bundle exec rake cucumber
+	13 scenarios (13 passed)
+	55 steps (55 passed)
+
+The app is now ready to build on.
+
+Set up the git remote : 
+
+67-206-186-156:sequencers William$ git remote rm origin
+67-206-186-156:sequencers William$ git remote add origin git@github.com:kathyonu/sequencers.git
+
+
+Below, I ran the first push without the first commit !!!
+
+67-206-186-156:sequencers William$ git push -u origin master
+Counting objects: 415, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (212/212), done.
+Writing objects: 100% (415/415), 85.67 KiB, done.
+Total 415 (delta 180), reused 415 (delta 180)
+To git@github.com:kathyonu/sequencers.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+67-206-186-156:sequencers William$ git status
+# On branch master
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   README
+#	modified:   README.textile
+#	modified:   Rakefile
+#	modified:   app/views/layouts/_navigation.html.haml
+#	modified:   app/views/layouts/application.html.haml
+#	modified:   config.ru
+#	modified:   config/application.rb
+#	modified:   config/environment.rb
+#	modified:   config/environments/development.rb
+#	modified:   config/environments/production.rb
+#	modified:   config/environments/test.rb
+#	modified:   config/initializers/secret_token.rb
+#	modified:   config/initializers/session_store.rb
+#	modified:   config/routes.rb
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+67-206-186-156:sequencers William$ git add .
+67-206-186-156:sequencers William$ git commit -m "first sequencers commit with all template changes"
+[master a47ca84] first sequencers commit with all template changes
+ 14 files changed, 52 insertions(+), 352 deletions(-)
+ rewrite README (99%)
+ rewrite README.textile (99%)
+67-206-186-156:sequencers William$ git push origin master
+Counting objects: 42, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (22/22), 3.40 KiB, done.
+Total 22 (delta 15), reused 0 (delta 0)
+To git@github.com:kathyonu/sequencers.git
+   cad72c4..a47ca84  master -> master
+67-206-186-156:sequencers William$ 
+==================================
+
+We are done. 
+We are now ready to build the app our way from here on out : 20120403 eve
+
+Thank you Daniel Kehoe for your stellar works called Rails_Apps.
+https://github.com/RailsApps/rails-prelaunch-signup/
+http://railsapps.github.com/tutorial-rails-prelaunch-signup.html
+
+Kathy Onu ~ Webmaster
+ goodworksonearth.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
